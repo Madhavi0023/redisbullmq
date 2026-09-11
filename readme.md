@@ -22,3 +22,40 @@ Invoke-RestMethod -Uri http://localhost:3000/order `
 
   res.json(counts);
 });
+
+                    Client / User
+                         │
+                         │ POST /order
+                         ▼
+                ┌──────────────────┐
+                │   Express API    │
+                │    server.js     │
+                └────────┬─────────┘
+                         │
+                         │ Add Job
+                         ▼
+                ┌──────────────────┐
+                │      BullMQ      │
+                │   order-queue    │
+                └────────┬─────────┘
+                         │
+                         │ Stores queue/job data
+                         ▼
+                ┌──────────────────┐
+                │      Redis       │
+                │   localhost:6379 │
+                └────────┬─────────┘
+                         ▲
+                         │ Fetch Job
+                         │
+                ┌────────┴─────────┐
+                │  BullMQ Worker   │
+                │    worker.js     │
+                └────────┬─────────┘
+                         │
+                         ▼
+                ┌──────────────────┐
+                │ Order Processing │
+                │ Payment / Email  │
+                │ External APIs    │
+                └──────────────────┘
