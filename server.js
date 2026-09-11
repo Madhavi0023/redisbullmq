@@ -74,7 +74,32 @@ app.post("/order", async (req, res) => {
     });
   }
 });
+// =========================
+// Queue Status API
+// =========================
 
+app.get("/queue-status", async (req, res) => {
+  try {
+    const counts = await orderQueue.getJobCounts(
+      "waiting",
+      "active",
+      "completed",
+      "failed",
+      "delayed"
+    );
+
+    res.json({
+      queue: "order-queue",
+      status: counts,
+    });
+  } catch (error) {
+    console.error("Error getting queue status:", error);
+
+    res.status(500).json({
+      message: "Failed to get queue status",
+    });
+  }
+});
 // =========================
 // Health Check
 // =========================
