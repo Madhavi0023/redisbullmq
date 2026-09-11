@@ -3,6 +3,7 @@ Invoke-RestMethod -Uri http://localhost:3000/order `
   -ContentType "application/json" `
   -Body '{"orderId":"ORD-200","email":"demo@example.com"}'
 
+<img width="1920" height="1080" alt="Screenshot (28)" src="https://github.com/user-attachments/assets/4040231c-6b64-49a9-9e94-ec0f57fc9a3f" />
 
   Invoke-RestMethod -Uri http://localhost:3000/order `
   -Method POST `
@@ -22,6 +23,9 @@ Invoke-RestMethod -Uri http://localhost:3000/order `
 
   res.json(counts);
 });
+
+<img width="1920" height="1080" alt="Screenshot (30)" src="https://github.com/user-attachments/assets/9303d10a-f276-457b-a601-46b852372dcb" />
+
 
                     Client / User
                          │
@@ -58,4 +62,6 @@ Invoke-RestMethod -Uri http://localhost:3000/order `
                 │ Order Processing │
                 │ Payment / Email  │
                 │ External APIs    │
+                <img width="1920" height="1080" alt="Screenshot (30)" src="https://github.com/user-attachments/assets/fe807b2b-d351-bcbe-c16c3932aa81" />
+
                 └──────────────────┘
